@@ -3,7 +3,6 @@ import { v4 as uuid } from "uuid";
 
 //5. Take onItemFormSubmit function in as a prop
 function ItemForm({ onItemFormSubmit }) {
-  
   //6. Create stateful object
   const [newItem, setNewItem] = useState({
     name: "",
@@ -12,7 +11,7 @@ function ItemForm({ onItemFormSubmit }) {
 
   //7. Function to set newItem to the form details
   function handleNewItem(e) {
-    e.preventDefault()
+    e.preventDefault();
     setNewItem({
       ...newItem,
       [e.target.name]: e.target.value,
@@ -20,12 +19,12 @@ function ItemForm({ onItemFormSubmit }) {
   }
 
   //8. function to assign ID to newItem
-  function handleSubmit(e){
-    e.preventDefault()
+  function handleSubmit(e) {
+    e.preventDefault();
 
     onItemFormSubmit({
       id: uuid(),
-      ...newItem
+      ...newItem,
     });
   }
 
@@ -34,22 +33,22 @@ function ItemForm({ onItemFormSubmit }) {
     <form onSubmit={handleSubmit} className="NewItem">
       <label>
         Name:
-        <input 
-        type="text" 
-        name='name'
-        value={newItem.name}
-        //9.1 pass handleNewItem to assign the value from input to newItem object name value
-        onChange={handleNewItem}
+        <input
+          type="text"
+          name="name"
+          value={newItem.name}
+          //9.1 pass handleNewItem to assign the value from input to newItem object name value
+          onChange={handleNewItem}
         />
       </label>
 
       <label>
         Category:
         {/*9.2 Pass value and change listener to form category into stateful object*/}
-        <select 
-        name='category' 
-        value={newItem.category} 
-        onChange={handleNewItem}
+        <select
+          name="category"
+          value={newItem.category}
+          onChange={handleNewItem}
         >
           <option value="Produce">Produce</option>
           <option value="Dairy">Dairy</option>

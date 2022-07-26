@@ -20,7 +20,7 @@ function App() {
     <div className={"App " + (isDarkMode ? "dark" : "light")}>
       <Header isDarkMode={isDarkMode} onDarkModeClick={handleDarkModeClick} />
       {/* 2. add new function to necessary component */}
-      <ShoppingList items={items} onItemFormSubmit={handleItemFormSubmit}/> 
+      <ShoppingList items={items} onItemFormSubmit={handleItemFormSubmit} />
     </div>
   );
 }
